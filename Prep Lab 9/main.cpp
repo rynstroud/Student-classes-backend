@@ -1,8 +1,4 @@
-//
-//  main.cpp
-//  Prep Lab 9
-//
-//  Created by Camryn Stroud on 11/28/19.
+//  Created by Ryn Stroud on 11/28/19.
 //  Copyright © 2019 Ryn Stroud. All rights reserved.
 //
 
@@ -17,7 +13,6 @@ public:
         name = initialName;
     }
 
-    // Enter definition for a virtual ToStr member function here.
     virtual void ToStr() {
         cout << name << " is an undergraduate student." << endl;
     }
@@ -28,13 +23,11 @@ protected:
 
 class GradStudent : public Student {
 public:
-    // Enter definition for a parameterized contructor function here that sets both data members.
     GradStudent(string initialName = "none", string initialResearchArea = "none") {
         name = initialName;
         researchArea = initialResearchArea;
     }
 
-    // Enter definition for a virtual ToStr member function here.
     virtual void ToStr() {
         cout << name << " is a graduate student researching the area of " << researchArea << "." << endl;
     }
@@ -58,8 +51,7 @@ int main() {
         if (usrOption == "print") {
             for (int i = 0; i < classMembers.size(); i++) {
                 classMembers.at(i)->ToStr();
-            }
-            // Enter code here to print each member pointed to from classMembers using their respective ToStr member functions.            }
+            }           }
         }
 
         else if (usrOption == "add") {
@@ -69,14 +61,14 @@ int main() {
             cout << "If grad student enter a one word research area, else enter \"NO\": ";
             cin >> inpResearch;
             cout << endl;
-            // Enter code here to create new objects (using new) for either a Student or a GradStudent
+            // create new objects for either a Student or a GradStudent
             if (inpResearch == UNDERGRAD_RSCH) {
                 newStudent = new Student(inpName);
             }
             else {
                 newStudent = new GradStudent(inpName, inpResearch);
             }
-                // and add the pointer to the classMember vector.
+                // the pointer to the classMember vector.
             classMembers.push_back(newStudent);
 
         }
